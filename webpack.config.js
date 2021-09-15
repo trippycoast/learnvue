@@ -21,6 +21,24 @@ module.exports = {
           test: /\.css$/,
           use: ['style-loader','css-loader']
         },
+        { 
+          test: /\.s[ca]ss$/,
+          use: ['style-loader','css-loader', 'sass-loader']
+        },
+        { 
+          test: /\.ts$/,
+          use: ['ts-loader']
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
     ],
   },
   plugins: [
