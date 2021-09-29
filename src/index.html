@@ -7,9 +7,14 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="message">
-        {{ message.split('').reverse().join('') }}
+        <input type="text" v-model="message" @keyup.enter="clicked">
         <button @click="clicked">Click me!</button>
+        <ul>
+            <li v-for="item in items">
+                <input type="checkbox" v-model="item.isDone">
+                {{item.name}}
+            </li>
+        </ul>
     </div>
 </body>
 </html>
