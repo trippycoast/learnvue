@@ -7,7 +7,9 @@
 </head>
 <body>
     <div id="app">
-        {{ greeting }}
+        <input type="text" v-model="message">
+        {{ message.split('').reverse().join('') }}
+        <button @click="clicked">Click me!</button>
     </div>
 </body>
 </html>
