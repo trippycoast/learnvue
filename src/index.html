@@ -9,12 +9,31 @@
     <div id="app">
         <input type="text" v-model="message" @keyup.enter="clicked">
         <button @click="clicked">Click me!</button>
+
+        <h1>All items</h1>
         <ul>
-            <li v-for="item in items">
+            <li v-for="item in items" :key="'all'+item.id">
                 <input type="checkbox" v-model="item.isDone">
                 {{item.name}}
             </li>
         </ul>
+
+        <h1>Done items</h1>
+        <ul>
+            <li v-for="item in doneItems" :key="'done'+item.id">
+                <input type="checkbox" v-model="item.isDone">
+                {{item.name}}
+            </li>
+        </ul>
+        
+        <h1>Not Done items</h1>
+        <ul>
+            <li v-for="item in notDoneItems" :key="'notDone'+item.id">
+                <input type="checkbox" v-model="item.isDone">
+                {{item.name}}
+            </li>
+        </ul>
+
     </div>
 </body>
 </html>
