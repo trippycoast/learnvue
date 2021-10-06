@@ -2,24 +2,34 @@
   <section class="section">
     <div class="container">
       <button class="button is-primary" @click="isActive=true">Click me!</button>
-      <div class="modal" :class="{'is-active': isActive}">
-        <div class="modal-background" @click="isActive=false"></div>
-        <div class="modal-content">
-          <p class="image is-4by3">
-            <img src="https://placekitten.com/1280/960" alt="">
-          </p>
-        </div>
-        <button class="modal-close is-large" aria-label="close" @click="isActive=false"></button>
-      </div>
+      <button class="button is-warning" @click="isActive2=true">Click me!</button>
+      <modal 
+      v-if="isActive"
+      @close="isActive=false">
+        <p class="image is-4by3">
+          <img src="https://placekitten.com/1280/960" alt="">
+        </p>      
+      </modal>
+      <modal 
+      v-if="isActive2"
+      @close="isActive2=false">
+        <p class="image is-4by3">
+          <img src="https://placebear.com/1280/960" alt="">
+        </p>   
+      </modal>
+
     </div>
   </section>
 </template>
 
 <script>
+import Modal from './Modal.vue'
 export default {
+  components: { Modal },
   data(){
     return {
-      isActive: false
+      isActive: false,
+      isActive2: false
     }
   }
 }
