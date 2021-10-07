@@ -11,21 +11,24 @@
     </ul>
   </div>
   <section class="section">
-    {{items[active].body}}
+    <component :is="items[active].componentName"></component>
+
   </section>
 </div>
 </template>
 
 <script>
+import ModalExample from './ModalExample.vue'
+import ToDoExample from './ToDoExample.vue'
+
 export default {
+  components: { ModalExample, ToDoExample},
     data(){
       return {
         active: 0,
         items: [
-          {title:'Pictures', body: "Some Pictures Here!"},
-          {title:'Music', body: "Some Music Here!"},
-          {title:'Videos', body: "Some Videos Here!"},
-          {title:'Documents', body: "Some Documents Here!"},
+          {title:'Modal Example', componentName:'ModalExample'},
+          {title:'ToDo Example', componentName:'ToDoExample'},
         ]
       }
     }
