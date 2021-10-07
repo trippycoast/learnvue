@@ -12,21 +12,23 @@
   </div>
   <section class="section">
     <component :is="items[active].componentName"></component>
-
+  
   </section>
 </div>
 </template>
 
 <script>
+import ClickerExample from './ClickerExample.vue'
 import ModalExample from './ModalExample.vue'
 import ToDoExample from './ToDoExample.vue'
 
 export default {
-  components: { ModalExample, ToDoExample},
+  components: { ModalExample, ToDoExample, ClickerExample},
     data(){
       return {
         active: 0,
         items: [
+          {title:'Clicker Example', componentName:'ClickerExample'},
           {title:'Modal Example', componentName:'ModalExample'},
           {title:'ToDo Example', componentName:'ToDoExample'},
         ]
